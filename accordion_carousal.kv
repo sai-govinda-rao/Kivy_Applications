@@ -1,0 +1,158 @@
+WindowManager:
+    HomeScreen:
+    FirstScreen:
+    SecondScreen:
+    ThirdScreen:
+<HomeScreen>
+    name : "home"
+    Screen:
+        MDTopAppBar:
+            text : "Home Screen"
+            left_action_items : [["menu"]]
+            right_action_items : [["dots-vertical"]]
+            pos_hint : {"top":1}
+        MDFloatLayout:
+            MDRectangleFlatButton:
+                text : "Go --> 1"
+                pos_hint : {"center_x":0.5,"center_y":0.6}
+                on_press :
+                    app.root.current = "first"
+                    root.manager.transition.direction = "left"
+            MDRectangleFlatButton:
+                text : "Go --> 2"
+                pos_hint : {"center_x":0.5,"center_y":0.5}
+                on_press :
+                    app.root.current = "second"
+                    root.manager.transition.direction = "left"
+            MDRectangleFlatButton:
+                text : "Go --> 3"
+                pos_hint : {"center_x":0.5,"center_y":0.4}
+                on_press :
+                    app.root.current = "third"
+                    root.manager.transition.direction = "left"
+        MDBottomAppBar:
+<FirstScreen>
+    name : "first"
+    MDScreen:
+        MDBoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "Dail Button"
+                left_action_items : [["arrow-left",lambda x:app.Back()]]
+                pos_hint : {"top":1}
+            MDBottomNavigation:
+                MDBottomNavigationItem:
+                    name : "Screen_1"
+                    text : "Instagram"
+                    bold : True
+                    icon : "instagram"
+                MDBottomNavigationItem:
+                    name : "Screen_2"
+                    bold : True
+                    text : "YouTube"
+                    icon : "youtube"
+                MDBottomNavigationItem:
+                    name : "Screen_3"
+                    bold : True
+                    text : "FaceBook"
+                    icon : "facebook"
+
+<SecondScreen>
+    name : "second"
+    MDBoxLayout:
+        MDScreen:
+
+            MDTopAppBar:
+                title : "Dail Button"
+                left_action_items : [["arrow-left",lambda x:app.Back()]]
+                pos_hint : {"top":1}
+            MDLabel:
+                text : "DailButton"
+                halign : "center"
+                MDFloatingActionButtonSpeedDial:
+                    data : root.data
+                    root_button_anim : True
+                    mode : "end"
+<ThirdScreen>
+    name : "third"
+    size : self.size
+    #MDScreen:
+    MDTopAppBar:
+        height : 100
+        title : "Calculator"
+        left_action_items : [["arrow-left",lambda x:app.Back()]]
+        pos_hint : {"top":1}
+    MDCard:
+        size_hint_y : None
+        height : 700
+        elevation : 10
+        pos_hint : {"center_x":0.5,"center_y":0.5}
+        MDBoxLayout:
+            orientation : "vertical"
+            TextInput:
+                
+                multiline : True
+                bold : True
+                font_size : 40
+                color : "violet"
+                halign : "center"
+            MDGridLayout:
+                cols : 4
+                rows : 4
+                RoundedButton:
+                    text : "C"
+                RoundedButton:
+                    text : "<-"
+                RoundedButton:
+                    text : "%"
+                RoundedButton:
+                    text : "/"
+                RoundedButton:
+                    text : "7"
+                RoundedButton:
+                    text : "8"
+                RoundedButton:
+                    text : "9"
+                RoundedButton:
+                    text : "*"
+                RoundedButton:
+                    text : "4"
+                RoundedButton:
+                    text : "5"
+                RoundedButton:
+                    text : "6"
+                RoundedButton:
+                    text : "-"
+                RoundedButton:
+                    text : "1"
+                RoundedButton:
+                    text : "2"
+                RoundedButton:
+                    text : "3"
+                RoundedButton:
+                    text : "+"
+                RoundedButton:
+                    text : "**"
+                RoundedButton:
+                    text : "0"
+                RoundedButton:
+                    text : "."
+                RoundedButton:
+                    text : "="
+    MDBottomAppBar:
+        height : 100
+
+        MDFabBottomAppBarButton:
+
+<RoundedButton@Button>
+    color : "black"
+    bold : True
+    background_color : 0,0,0,0
+    canvas.before:
+        Color:
+            rgba:(1,1,1,1)
+        RoundedRectangle:
+            size : self.size
+            pos: self.pos
+            radius : [50]
+
