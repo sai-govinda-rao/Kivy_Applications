@@ -1,0 +1,48 @@
+<Label>
+    font_size : 30
+    color : "black"
+<AppInterFace>
+    name : name
+    password : password
+    Image:
+        source: "" # image path
+        size : root.width,root.height
+        BoxLayout:
+            orientation : "vertical"
+            size :root.width,root.height
+            spacing : 50
+            padding :  120
+
+            GridLayout:
+                cols : 1
+                Label:
+                    text:"LogIn"
+                    size : root.width,root.height
+                    font_size : 40
+
+                GridLayout:
+                    cols : 2
+                    size : root.width,root.height
+                    Label:
+                        text : "Name"
+                    TextInput:
+                        id : name
+                        multiline : False
+                    Label:
+                        text : "Password"
+                    TextInput:
+                        id : password
+                        multiline : False
+                        input_filter : "int"
+            Button:
+                text : "Submit"
+                font_size : 30
+                color : "black"
+                background_color: "powderblue"
+                size_hint : (None,None)
+                size : (120,50)
+                pos_hint : {"center_x":0.5}
+                on_press : root.press()
+
+
+
