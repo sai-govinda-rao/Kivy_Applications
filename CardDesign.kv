@@ -1,0 +1,65 @@
+ScreenManager:
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            size : root.width, root.height
+            MDTopAppBar:
+                title : "Card Design"
+                left_action_items : [["arrow-left"]]
+            MDFloatLayout:
+                Image:
+                    source : "C:\\Users\\srini\\OneDrive\\Desktop\\HTML\\LoginScreen1.jpg"
+                    # we can give any image path here
+                    allow_stretch : True
+                    keep_ratio : False
+                MDCard:
+                    size_hint : None, None
+                    size : 380,600
+                    halign : "center"
+                    pos_hint : {"center_x":0.80, "center_y":0.5}
+                    elevation : 5
+                    spacing : 10
+                    padding : 20
+                    orientation : "vertical"
+                    MDLabel:
+                        text : "SignUp"
+                        halign : "center"
+                        bold : True
+                        font_size : 30
+
+                    MDTextField:
+                        hint_text : "Name"
+                        size_hint_x : None
+                        icon_right : "account"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDTextField:
+                        hint_text : "G-Mail"
+                        size_hint_x : None
+                        icon_right : "eye-off"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDTextField:
+                        hint_text : "Password"
+                        size_hint_x : None
+                        icon_right : "eye-off"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDTextField:
+                        hint_text : "Re enter Password"
+                        size_hint_x : None
+                        icon_right : "eye-off"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDRoundFlatButton:
+                        text : "REGISTER"
+                        bold : True
+                        text_color : "black"
+                        pos_hint : {"center_x": 0.5}
+                        md_bg_color : 90/255, 219/255, 181/255, 255/255
+                    MDRoundFlatButton:
+                        text : "CLEAR"
+                        text_color : "black"
+                        bold : True
+                        pos_hint : {"center_x": 0.5}
+                        md_bg_color : 90/255, 219/255, 181/255, 255/255
