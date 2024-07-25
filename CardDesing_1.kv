@@ -1,0 +1,59 @@
+ScreenManager:
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            size : root.width, root.height
+            MDTopAppBar:
+                title : "Card Design"
+                left_action_items : [["arrow-left"]]
+            MDFloatLayout:
+                Image:
+                    source : "C:\\Users\\srini\\OneDrive\\Desktop\\HTML\\LockScreen.jpg"
+                    # we will have to mention image path here
+                    allow_stretch : True
+                    keep_ratio : False
+                MDCard:
+                    size_hint : None, None
+                    size : 380,550
+                    halign : "center"
+                    pos_hint : {"center_x":0.80, "center_y":0.5}
+                    elevation : 5
+                    spacing : 10
+                    padding : 20
+                    orientation : "vertical"
+                    MDLabel:
+                        text : "SignIn"
+                        halign : "center"
+                        bold : True
+                        font_size : 40
+
+                    MDTextField:
+                        hint_text : "Name"
+                        size_hint_x : None
+                        icon_right : "account"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDTextField:
+                        hint_text : "Password"
+                        size_hint_x : None
+                        icon_right : "eye-off"
+                        width : 250
+                        pos_hint : {"center_x":0.5}
+                    MDLabel:
+                        id : pass_label
+                        color : "red"
+                        text : "Invalid Details"
+                        halign : "center"
+                        font_size : 20
+                    MDRoundFlatButton:
+                        text : "LogIn"
+                        bold : True
+                        text_color : "black"
+                        pos_hint : {"center_x": 0.5}
+                        md_bg_color : 87/255, 131/255, 219/255, 255/255
+                    MDRoundFlatButton:
+                        text : "CLEAR"
+                        text_color : "black"
+                        bold : True
+                        pos_hint : {"center_x": 0.5}
+                        md_bg_color : 87/255, 131/255, 219/255, 255/255
