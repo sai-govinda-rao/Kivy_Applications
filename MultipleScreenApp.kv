@@ -1,0 +1,165 @@
+WindowScreen:
+    HomeScreen:
+    WelcomeScreen:
+    FirstScreen:
+    SecondScreen:
+    ThirdScreen:
+<HomeScreen>
+    name : "home"
+    Screen:
+        size : self.size
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title: "App"
+                left_action_items : [["menu"]]
+                right_action_items : [["brightness-6",lambda x:app.Theme()],["dots-vertical"]]
+
+                pos_hint : {"top":1}
+            ScreenManager:
+                Screen:
+                    MDCard:
+                        size_hint : None,None
+                        size : 400,500
+                        elevation : 5
+                        pos_hint : {"center_x":0.5,"center_y":0.5}
+                        spacing : 10
+                        padding : 20
+                        orientation : "vertical"
+                        MDLabel:
+                            text : "[size=50][b]LogIn[/b][/size]"
+                            markup : True
+                            pos_hint : {"center_x":0.5}
+                            halign : "center"
+                        MDTextField:
+                            id : name
+                            multiline : False
+                            hint_text : "Name"
+                            icon_right : "account"
+                            size_hint_x : None
+                            width : 300
+                            pos_hint:{"center_x":0.5}
+                        MDTextField:
+                            id : password
+                            multiline : False
+                            hint_text : "Password"
+                            icon_right : "eye-off"
+                            size_hint_x : None
+                            width : 300
+                            pos_hint:{"center_x":0.5}
+                        Widget:
+                            height : 1
+                        MDRectangleFlatButton:
+                            text : "Login"
+                            pos_hint : {"center_x":0.5}
+                            on_press :
+                                app.root.current = "welcome"
+                                root.manager.transition.direction = "left"
+                        MDRoundFlatButton:
+                            text : "clear"
+                            on_press : root.clear()
+                            pos_hint : {"center_x":0.5}
+            MDBottomAppBar:
+
+<WelcomeScreen>
+    name : "welcome"
+    Screen:
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "Welcome"
+                left_action_items : [["arrow-left",lambda x:app.back()]]
+                pos_hint : {"top":1}
+            ScreenManager:
+                Screen:
+                    GridLayout:
+                        cols : 1
+                        Widget:
+                            height : 10
+                        MDRoundFlatButton:
+                            text : "Go-->1"
+                            size_hint : 0.2,0.2
+                            pos_hint : {"center_x":0.5}
+                            on_press :
+                                app.root.current = "first"
+                                root.manager.transition.direction = "left"
+                        MDRoundFlatButton:
+                            text : "Go-->2"
+                            size_hint : 0.2,0.2
+                            pos_hint : {"center_x":0.5}
+                            on_press :
+                                app.root.current = "second"
+                                root.manager.transition.direction = "left"
+                        MDRoundFlatButton:
+                            text : "Go-->3"
+                            size_hint : 0.2,0.2
+                            pos_hint : {"center_x":0.5}
+                            on_press :
+                                app.root.current = "third"
+                                root.manager.transition.direction = "left"
+                        Widget:
+                            height : 10
+<FirstScreen>
+    name : "first"
+    MDBoxLayout:
+        orientation : "vertical"
+        MDTopAppBar:
+            title : "Social Media"
+            left_action_items : [["arrow-left",lambda x:app.Back()]]
+        ScreenManager:
+            Screen:
+                MDBottomNavigation:
+                    MDBottomNavigationItem:
+                        name : "Screen1"
+                        text : "YouTube"
+                        icon : "youtube"
+                        MDLabel:
+                            text : "[size=200][b]YOUTUBE[/b][/size]"
+                            markup : True
+                            halign : "center"
+                    MDBottomNavigationItem:
+                        name : "Screen2"
+                        text : "FaceBook"
+                        icon : "facebook"
+                        MDLabel:
+                            text : "[size=200][b]FaceBook[/b][/size]"
+                            markup : True
+                            halign : "center"
+                    MDBottomNavigationItem:
+                        name : "Screen3"
+                        text : "Insta"
+                        icon : "instagram"
+                        MDLabel:
+                            text : "[size=200][b]Instagram[/b][/size]"
+                            markup : True
+                            halign : "center"
+        MDBottomAppBar:
+
+<SecondScreen>
+    name : "second"
+    MDBoxLayout:
+        orientation : "vertical"
+        MDTopAppBar:
+            title : "Second Screen"
+            left_action_items : [["arrow-left",lambda x:app.Back()]]
+        MDLabel:
+        MDBottomAppBar:
+
+<ThirdScreen>
+    name : "third"
+    MDBoxLayout:
+        orientation : "vertical"
+        MDTopAppBar:
+            title : "Map"
+            left_action_items : [["arrow-left",lambda x:app.Back()]]
+        MapView:
+            lat : 36
+            lon : -125
+            zoom : 10
+
+
+
+
+
+
+
