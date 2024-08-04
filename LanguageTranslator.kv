@@ -1,0 +1,65 @@
+ScreenManager:
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "Google Translator"
+                left_action_items : [["menu"]]
+                right_action_items : [["google-translate"]]
+            MDBoxLayout:
+                orientation : "vertical"
+                spacing : 15
+                padding : 30
+                MDGridLayout:
+                    cols : 2
+                    spacing : 15
+                    # 1st row
+                    Spinner:
+                        id : dropdown_from
+                        text : "Languages"
+                        bold : True
+                        font_size : 30
+                        values : ["English", "Hindi", "Sanskrit", "Arabic"]
+                        on_text : app.Select_from(dropdown_from.text)
+                        background_color: 1,1,1,1
+                        size_hint_y : None
+                        height : 50
+                    Spinner:
+                        id : dropdown_to
+                        text : "Languages"
+                        bold : True
+                        font_size : 30
+                        values : ["Telugu", "English", "Hindi", "Sanskrit", "Nepali", "Marathi", "Dutch", "German", "Norwegian", "French", "Latin", "Italian", "Spanish", "Romanian", "Mizo(Mizoram)", "Zulu(SouthAfrica)", "Esperanto(UK)"]
+                        on_text : app.Select_to(dropdown_to.text)
+                        #background_color: "white"
+                        size_hint_y : None
+                        height : 50
+                    TextInput:
+                        id : translate_input
+                        multiline : True
+                        font_size : 40
+                        font_name : "Roboto"
+                    TextInput:
+                        id : translate_output
+                        font_size : 40
+                        unicode_errors: "strict"
+                        font_name : "Roboto"
+                        text_selection : True
+                    MDFloatingActionButton:
+                        icon : "google-translate"
+                        icon_color : "black"
+                        md_bg_color : "white"
+                        icon_size : "50sp"
+                        size_hint : 0.30, 0.15
+                        pos_hint : {"center_x":0.5}
+                        on_press : app.Translate()
+                    MDFloatingActionButton:
+                        icon : "format-clear"
+                        icon_color : "black"
+                        md_bg_color : "white"
+                        icon_size : "50sp"
+                        size_hint : 0.30, 0.15
+                        pos_hint : {"center_x":0.5}
+                        on_press : app.Translate()
+                        on_press : app.Clear()
+            MDBottomAppBar:
