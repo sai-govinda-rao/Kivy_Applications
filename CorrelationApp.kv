@@ -1,0 +1,115 @@
+WindowScreen:
+    HomeScreen:
+    FirstScreen:
+    SecondScreen:
+    ThirdScreen:
+<HomeScreen>
+    name : "home"
+    Screen:
+        MDNavigationLayout:
+            ScreenManager:
+                Screen:
+                    MDBoxLayout:
+                        orientation : "vertical"
+                        MDTopAppBar:
+                            title : "CorrelationApp"
+                            left_action_items : [["menu",lambda x : nav_drawer.set_state("toggle")]]
+                        ScreenManager:
+                            Screen:
+                                MDLabel:
+                                    halign : "center"
+                                    markup : True
+                                    text : "[size=100][b]Welcome To This App[/b][/size]"
+                        MDBottomAppBar:
+            MDNavigationDrawer:
+                id : nav_drawer
+                radius : [0]
+                MDNavigationDrawerMenu:
+                    MDNavigationDrawerItem:
+                        icon : "account"
+                        text : "Profile"
+                        on_press:
+                            app.root.current = "first"
+                            root.manager.transition.direction = "left"
+                    MDNavigationDrawerItem:
+                        icon : "message"
+                        text : "Help"
+                        on_press:
+                            app.root.current = "second"
+                            root.manager.transition.direction = "left"
+                    MDNavigationDrawerItem:
+                        icon : "calculator"
+                        text : "Correlation"
+                        on_press:
+                            app.root.current = "third"
+                            root.manager.transition.direction = "left"
+<FirstScreen>
+    name : "first"
+    Screen:
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "profile"
+                left_action_items : [["arrow-left", lambda x : app.Back()]]
+            ScreenManager:
+                Screen:
+                    Widget:
+            MDBottomAppBar:
+<SecondScreen>
+    name : "second"
+    Screen:
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "help center"
+                left_action_items : [["arrow-left", lambda x: app.Back()]]
+            ScreenManager:
+                Screen:
+                    Image:
+                        source : "qrcode.png" # give your qr code image path
+            MDBottomAppBar:
+<ThirdScreen>
+    name : "third"
+    Screen:
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "Correlation Finding"
+                left_action_items : [["arrow-left", lambda x:app.Back()]]
+            ScreenManager:
+                Screen:
+                    MDBoxLayout:
+                        orientation : "vertical"
+                        GridLayout:
+                            cols : 2
+                            MDLabel:
+                                text : "Enter X Values\nEnter Space Separated Integers"
+                            MDTextField:
+                                id : x
+                                multiline : False
+                                pos_hint : {"y":0.5}
+                                hint_text : "values"
+                            MDLabel:
+                                text : "Enter X Values\nEnter Space Separated Integers"
+                            MDTextField:
+                                id : y
+                                multiline : False
+                                pos_hint : {"y":0.5}
+                                hint_text : "values"
+                        MDRaisedButton:
+                            text : "Find"
+                            bold : True
+                            size_hint_x : None
+                            width : 100
+                            pos_hint : {"center_x":0.5}
+                            on_press : root.Correlation_find()
+                        MDLabel:
+                            id : label_text
+                            text : ""
+                            halign : "center"
+                            font_size : 30
+                            bold : True
+            MDBottomAppBar:
+
+
+
