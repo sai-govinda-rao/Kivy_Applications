@@ -1,0 +1,76 @@
+WindowScreen:
+    HomeScreen:
+    FirstScreen:
+    SecondScreen:
+<HomeScreen>
+    name : "home"
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "List Stories App"
+                bold : "true"
+                left_action_items : [["menu"]]
+                right_action_items : [["dots-vertical"]]
+            MDFloatLayout:
+                MDRaisedButton:
+                    text : "Go"
+                    pos_hint : {"center_x":0.5,"center_y":0.5}
+                    on_press :
+                        app.root.current = "first"
+                        root.manager.transition.direction = "left"
+            MDBottomAppBar:
+<FirstScreen>
+    name : "first"
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "List Stories App"
+                bold : "true"
+                left_action_items : [["arrow-left",lambda x : app.Back()]]
+                right_action_items : [["dots-vertical"]]
+            ScrollView:
+                MDList:
+                    id : id_list
+            MDBottomAppBar:
+<SecondScreen>
+    name : "second"
+    Screen:
+        MDBoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "List Stories App"
+                bold : "true"
+                left_action_items : [["arrow-left",lambda x : root.back()]]
+                right_action_items : [["dots-vertical"]]
+                md_bg_color : "lime"
+            MDBoxLayout:
+                orientation : "horizontal"
+                spacing : 10
+                padding : 10
+                md_bg_color : "lime"
+                MDScrollView:
+                    MDLabel:
+                        text : ""
+                        id : label_text
+                        size_hint_y : None
+                        height : self.texture_size[1]
+                        text_size : self.width,None
+                        font_size : 20
+                        padding : 20
+                        canvas.before:
+                            Color:
+                                rgba : 1,1,1,1
+                            RoundedRectangle:
+                                pos : self.pos
+                                size : self.size
+                                radius : [50]
+                MDSlider:
+                    min : 20
+                    max : 40
+                    step : 1
+                    on_value : root.Slide(*args)
+                    orientation : "vertical"
+                    size_hint_x : None
+                    width : 8
