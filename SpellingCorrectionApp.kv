@@ -1,0 +1,33 @@
+Screen:
+    MDBoxLayout:
+        orientation : "vertical"
+        MDTopAppBar:
+            title : "Spelling Correction"
+            left_action_items : [["menu"]]
+            right_action_items : [["dots-vertical"]]
+        MDTextField:
+            multiline : False
+            hint_text : "Enter Word"
+            id : input_text
+            halign : "center"
+            size_hint_x : None
+            width : 300
+            icon_right : "archive-search"
+            pos_hint : {"center_x":0.5}
+        MDFloatingActionButton:
+            style : "large"
+            icon : "text-search-variant"
+            icon_color : "black"
+            icon_size : "50sp"
+            size_hint : 0.25,0.25
+            pos_hint : {"center_x":0.5}
+            elevation : 5
+            on_press : app.Check()
+        MDLabel:
+            text : ""
+            id : label
+            halign : "center"
+            pos_hint : {"center_x":0.5,"center_y":0.5}
+            font_size : 30
+
+        MDBottomAppBar:
