@@ -1,0 +1,120 @@
+WindowManager:
+    HomeScreen:
+    GameScreen:
+<HomeScreen>
+    name : "home"
+    Screen:
+        MDNavigationLayout:
+            ScreenManager:
+                Screen:
+                    MDBoxLayout:
+                        orientation : "vertical"
+                        MDTopAppBar:
+                            title : "HangMan"
+                            left_action_items : [["menu",lambda x:navigation_drawer.set_state("toggle")]]
+                            right_action_items : [["dots-vertical"]]
+                        ScreenManager:
+                            Screen:
+                                MDFloatLayout:
+                                    radius : [0]
+                                    Image:
+                                        source : "C:\\Users\\srini\\OneDrive\\Desktop\\HTML\\680.png"
+                                        size_hint : None,None
+                                        size : self.texture_size
+                                        pos_hint : {"center_x":0.5,"center_y":0.5}
+                                    MDFloatingActionButton:
+                                        style : "large"
+                                        icon : "play"
+                                        icon_color : "black"
+                                        icon_size : "50sp"
+                                        pos_hint : {"center_x":0.5,"center_y":0.4}
+                                        size_hint : .25,.2
+                                        on_press :
+                                            app.root.current = "game"
+                                            root.manager.transition.direction = "left"
+                        MDBottomAppBar:
+            MDNavigationDrawer:
+                radius : [0]
+                id : navigation_drawer
+                MDNavigationDrawerMenu:
+                    MDNavigationDrawerItem:
+                        text : "G-Mail"
+                        icon : "gmail"
+                    MDNavigationDrawerItem:
+                        text : "LogOut"
+                        icon : "logout"
+<GameScreen>
+    name : "game"
+    ScreenManager:
+        Screen:
+            MDBoxLayout:
+                orientation : "vertical"
+                MDTopAppBar:
+                    title : ""
+                    left_action_items : [["arrow-left",lambda x:root.back()]]
+                ScreenManager:
+                    Screen:
+                        MDGridLayout:
+                            cols : 1
+                            spacing : 5
+                            MDLabel:
+                                text : "HangMan Game\nPlay Carefully\nYou Are Playing With My Life"
+                                text_size : self.size
+                                multiline : True
+                                size_hint_y : None
+                                height : 300
+                                id : game_label
+                                color : "black"
+                                outline_width : 4
+                                outline_color : "violet"
+                                halign : "center"
+                            MDLabel:
+                                text : ""
+                                bold : True
+                                font_size : 50
+                                size_hint_y : None
+                                height : 100
+                                id : hint_label
+                                color : "black"
+                                outline_width : 2
+                                outline_color : 1,0,1,0
+                                halign : "center"
+
+                        MDBoxLayout:
+                            orientation : "vertical"
+                            padding : 5
+                            spacing : 5
+                            MDTextField:
+                                id : input_label
+                                size_hint_x : None
+                                width : 150
+                                pos_hint : {"center_x":0.5,"top":1}
+                                hint_text : "Enter A Letter"
+                                multiline : False
+                                halign : "center"
+
+                            MDRectangleFlatButton:
+                                text : "Submit"
+                                pos_hint : {"center_x":0.5}
+                                on_press : root.Hangman(self)
+                                size_hint_x : None
+                                width : 0.4
+
+                            MDRectangleFlatButton:
+                                text : "Start"
+                                bold : True
+                                font_size : 30
+                                font_color : 0,0,0,0
+                                pos_hint : {"center_x":0.5}
+                                on_press : root.Start()
+
+
+                MDBottomAppBar:
+
+
+
+
+
+
+
+
