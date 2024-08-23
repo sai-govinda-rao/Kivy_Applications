@@ -1,0 +1,18 @@
+#:import MapView kivy_garden.mapview.MapView
+ScreenManager:
+    Screen:
+        BoxLayout:
+            orientation : "vertical"
+            MDTopAppBar:
+                title : "Map View"
+                left_action_items : [["menu"]]
+                right_action_items : [["magnify"],["dots-vertical"]]
+            MapView:
+                zoom : 2
+                lat : 0
+                lonm : 0
+                double_tap_zoom : True
+                MDFloatLayout:
+                    MDTextField:
+                        pos_hint : {"center_x":0.5, "top":1}
+            MDBottomAppBar:
